@@ -1,0 +1,3 @@
+/.vagrant
+/vm_share/*
+!/vm_share/mpihello.c
