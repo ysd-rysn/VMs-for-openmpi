@@ -19,9 +19,10 @@ if [[ ! -e /etc/.provisioned ]]; then
         ssh-keygen -t rsa -f $SYNCED_FOLDER/.ssh/id_rsa -N ""
     fi
 
-    # 共有フォルダから/home内の.sshにSSHキーをコピー
+    # 共有フォルダから/home内の.sshに秘密鍵をコピー
     install -m 600 -o vagrant -g vagrant $SYNCED_FOLDER/.ssh/id_rsa /home/vagrant/.ssh/
 
+    # 公開鍵を登録
     # 改行を入れるために"echo"が必要
     (echo; cat $SYNCED_FOLDER/.ssh/id_rsa.pub) >> /home/vagrant/.ssh/authorized_keys
 
