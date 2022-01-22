@@ -25,10 +25,10 @@ Vagrant.configure("2") do |config|
   # 各VM固有の設定
   ###
   1.upto(NUM_VMS) do |i|
-    config.vm.define vm_name = "node#{i}" do |config|
-      config.vm.hostname = vm_name
+    config.vm.define vm_name = "node#{i}" do |node|
+      node.vm.hostname = vm_name
       ip = "192.168.56.#{100+i}"
-      config.vm.network "private_network", ip: ip, virtualbox__intnet: "intranet"
+      node.vm.network "private_network", ip: ip, virtualbox__intnet: "intranet"
     end
   end
 
