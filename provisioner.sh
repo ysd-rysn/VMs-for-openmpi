@@ -27,7 +27,7 @@ if [[ ! -e /etc/.provisioned ]]; then
     (echo; cat $SYNCED_FOLDER/.ssh/id_rsa.pub) >> /home/vagrant/.ssh/authorized_keys
 
     # openmpi をインストール
-    apt -y update
+    apt update
     apt -y install openmpi-bin
 
     touch /etc/.provisioned
