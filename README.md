@@ -1,11 +1,11 @@
 # VMs-for-openmpi
 
 ## Hello World
-1. `vagrant up`でVMを起動
-2. `vagrant ssh node1`でnode1に接続
-3. `~/.ssh/known_hosts`へ他のnodeを登録(作成した台数分)
+1. `vagrant up`
+2. `vagrant ssh node1`
+3. Register other nodes in `~/.ssh/known_hosts`
 4. `mpicc -o mpihello /vm_share/mpihello.c` 
-5. `mpirun --hostfile /vm_share/hostfile -np "作成したVMの台数" ./mpihello`
+5. `mpirun --hostfile /vm_share/hostfile -np "number of VMs created" ./mpihello`
 
 ## Usage
-- VMの台数を変更するには，Vagrantfileの`NUM_VMS`の値を変更する
+- Modify `NUM_VMS` to change number of VMs
